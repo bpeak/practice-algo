@@ -42,6 +42,7 @@ const solution = (nodeCount, nodeCosts) => {
     totalPrice += minPrice
     const [src, dst] = minCost
     graph.get(src).push(dst)
+    graph.get(dst).push(src)
     costs.delete(minCost)
   }
   
