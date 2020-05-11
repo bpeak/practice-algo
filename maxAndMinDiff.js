@@ -1,6 +1,7 @@
 const maxAndMin = (arr1, arr2) => {
   arr1.sort((a, b) => a - b) // nlogn
   arr2.sort((a, b) => a - b) // nlogn
+
   const max1 = arr1[arr1.length - 1]
   const min1 = arr1[0]
   const max2 = arr2[arr2.length - 1]
@@ -16,6 +17,7 @@ const maxAndMin = (arr1, arr2) => {
   let minDiff = Infinity
   for(let i = 0; i < arr.length - 1; i++) { // n
     if(arr[i].own === arr[i + 1].own){ continue }
+    
     const currDiff = Math.abs(arr[i].v - arr[i + 1].v)
     if(currDiff < minDiff) { minDiff = currDiff }
   }
