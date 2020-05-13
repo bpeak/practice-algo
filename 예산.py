@@ -40,3 +40,17 @@ def solution2(d, budget):
 
 print(solution2([1,3,2,5,4], 9)) # 3
 print(solution2([2,2,3,3], 10)) # 4
+
+# best2 ( with wlgud )
+def solution3(d, budget):
+    d.sort()
+    count = 0
+    for v in d:
+        if v > budget:
+            break
+        budget -= v
+        count += 1
+    return count
+
+print(solution3([1,3,2,5,4], 9)) # 3
+print(solution3([2,2,3,3], 10)) # 4
