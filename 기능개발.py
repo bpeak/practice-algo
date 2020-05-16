@@ -53,3 +53,21 @@ speeds.pop()
 하나의 리스트로 합쳐주고 dict 형태로 관리하는게 실수 확률은 굉장히 낮을듯
 
 """
+
+"""
+# remove done job
+
+if doneJobCount > 0:
+    for i in range(doneJobCount):
+        jobs.pop(0)
+        speeds.pop(0)
+    done.append(doneJobCount)
+
+    반복문 왜돌려?
+    앞에꺼에서 갯수만큼 빼주고싶다면
+    그냥 리스트 슬라이스 치면됨.
+
+    progresses = progresses[doneJobCount:]
+    speeds = speeds[doneJobCount:]
+
+"""
