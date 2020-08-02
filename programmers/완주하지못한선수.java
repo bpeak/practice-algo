@@ -43,3 +43,41 @@ class SolutionTwo {
         return result;
     }
 }
+
+// 중복제거
+class SolutionThree {
+    public String solution(String[] participant, String[] completion) {
+        HashMap<String, Integer> hash = new HashMap<>();
+        String result = null;
+        for(String p : completion) {
+            hash.put(p, hash.getOrDefault(p, 0) + 1);
+        }
+        for(String p : participant) {
+            hash.put(p, hash.getOrDefault(p, 0) - 1);
+            if(!hash.containsKey(p) || hash.get(p) < 0) {
+                result = p;
+                break;
+            }
+        }
+        return result;
+    }
+}
+
+// 불필요 메서드 제거
+class SolutionFour {
+    public String solution(String[] participant, String[] completion) {
+        HashMap<String, Integer> hash = new HashMap<>();
+        String result = null;
+        for(String p : completion) {
+            hash.put(p, hash.getOrDefault(p, 0) + 1);
+        }
+        for(String p : participant) {
+            hash.put(p, hash.getOrDefault(p, 0) - 1);
+            if(hash.get(p) < 0) {
+                result = p;
+                break;
+            }
+        }
+        return result;
+    }
+}
