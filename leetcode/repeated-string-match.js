@@ -4,7 +4,7 @@ const test = (A, B) => {
 	while(A_next.length < B.length) {
 		A_next = A_next + A
 		count++
-	}
+    }
 	if(A_next.includes(B)) {
 		return count
 	}
