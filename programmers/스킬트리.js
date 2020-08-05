@@ -6,7 +6,7 @@ function solution(skill, skillTrees) {
             if(skillIdx === -1) {
                 return true
             }
-            if(skillIdx - prevSkillIdx > 1) {
+            if(prevSkillIdx + 1 !== skillIdx) { // if(skillIdx - prevSkillIdx > 1) {
                 return false
             } else {
                 prevSkillIdx = skillIdx
