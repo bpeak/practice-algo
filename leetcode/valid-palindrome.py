@@ -10,3 +10,8 @@ class Solution:
             if s != e:
                 return False
         return True
+
+class Solution2:
+    def isPalindrome(self, s):
+        chars = [c.lower() for c in s if c.isalnum()]
+        return chars == chars[::-1]
