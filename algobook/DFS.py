@@ -1,3 +1,5 @@
+# * 반복문 돌려놓고 들어간다 *
+
 def dfs(graph, v, visited):
     print(f'{v} 방문')
     visited[v] = True
