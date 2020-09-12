@@ -25,7 +25,7 @@ def binary_search2(arr, target):
     start = 0
     end = len(arr) - 1
 
-    while start < end:
+    while start <= end:
         # print('b2')
         mid = ( start + end ) // 2
         if target == arr[mid]:
