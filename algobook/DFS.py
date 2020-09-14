@@ -1,11 +1,11 @@
 # * 반복문 돌려놓고 들어간다 *
 
-def dfs(graph, v, visited):
+def dfs(graph, v, visited=set()):
     print(f'{v} 방문')
-    visited[v] = True
+    visited.add(v)
 
     for v_ in graph[v]:
-        if not visited[v_]:
+        if v_ not in visited:
             dfs(graph, v_, visited)
         else:
             print(f'{v_} 이미방문')
@@ -20,4 +20,4 @@ dfs([
     [7],
     [2,6,8],
     [1,7],
-], 1, visited=[False] * 9)
+], 1)

@@ -1,18 +1,18 @@
 from collections import deque
 
 def dfs(graph, start_v):
-    queue = deque()
-    visited = [False] * 9
+    queue = deque()    
     queue.append(start_v)
-    visited[start_v] = True
+    visited = set()    
+    visited.add(start_v)
 
     while len(queue) != 0:
         v = queue.popleft()
         print(f'{v}')       
-        for v_ in graph[v]:
-            if not visited[v_]:
-                queue.append(v_)
-                visited[v_] = True
+        for adj_v in graph[v]:
+            if adj_v not in visited:
+                queue.append(adj_v)
+                visited.add(adj_v)
 
 dfs([
     [],
@@ -25,3 +25,25 @@ dfs([
     [2,6,8],
     [1,7],
 ], 1)
+
+def dfs_(graph, start_v):
+    queue = deque()
+    visited = [False] * 9
+    queue.append(start_v)
+    visited[start_v] = True
+
+    while len(queue) != 0:
+        v = queue.popleft()
+        print(f'{v}')       
+        for v_ in graph[v]:
+            if not visited[v_]:
+                queue.append(v_)
+                visited[v_] = True
+                
+abc = 3333333333
+def a():
+    print(abc)
+    abc = 2322
+    pass
+
+a()
