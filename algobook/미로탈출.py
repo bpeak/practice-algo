@@ -66,6 +66,29 @@ def solution2(matrix, x = 0, y = 0):
     
     return matrix[len(matrix) - 1][len(matrix[0]) - 1]
 
+def solution3(matrix):
+    dest_row = len(matrix) - 1
+    dest_col = len(matrix[0]) - 1
+    queue = [(0, 0)]
+    matrix[0][0] = 1
+    directions = ((0,1), (1,0), (-1,0), (-1,0))
+    count = 0
+    while len(queue) > 0:
+        curr_row, curr_col = queue.pop(0)
+        if curr_row == dest_row and curr_col == dest_col:
+            return matrix[curr_row][curr_col]
+        for dx, dy in directions:
+            next_row = curr_row + dy
+            next_col = curr_col + dx
+            if next_row >= 0 and \
+                next_row <= len(matrix) - 1 and \
+                next_col >= 0 and \
+                next_col <= len(matrix[0]) - 1 and \
+                matrix[next_row][next_col] == 1:
+                matrix[next_row][next_col] = matrix[curr_row][curr_col] + 1
+                queue.append((next_row, next_col))
+
+
 print(solution([
     [1,0,1,0,1,0],
     [1,1,1,1,1,1],
@@ -75,6 +98,14 @@ print(solution([
 ]))
 
 print(solution2([
+    [1,0,1,0,1,0],
+    [1,1,1,1,1,1],
+    [0,0,0,0,0,1],
+    [1,1,1,1,1,1],
+    [1,1,1,1,1,1]
+]))
+
+print(solution3([
     [1,0,1,0,1,0],
     [1,1,1,1,1,1],
     [0,0,0,0,0,1],

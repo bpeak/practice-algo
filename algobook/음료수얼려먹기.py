@@ -110,6 +110,29 @@ def solution4(matrix):
 
     return ice_count    
 
+def solution5(matrix):
+    directions = ((1, 0), (-1, 0), (0, 1), (0, -1))
+    count = 0
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if matrix[row][col] == 0:
+                count += 1
+                stack = [(row, col)]
+                matrix[row][col] = 1 # visit
+                while len(stack) > 0:
+                    row, col = stack.pop()
+                    for dx, dy in directions:
+                        next_col = col + dx
+                        next_row = row + dy
+                        if next_col >= 0 and \
+                            next_col <= len(matrix[row]) - 1 and \
+                            next_row >= 0 and \
+                            next_row <= len(matrix) - 1 and \
+                            matrix[next_row][next_col] == 0:
+                            matrix[next_row][next_col] = 1
+                            stack.append((next_row, next_col))
+    return count                            
+
 print(solution(matrix=[
     [0,0,1,1,0],
     [0,0,0,1,1],
@@ -194,6 +217,31 @@ print(solution4([
 ]))    
 
 print(solution4(matrix=[
+    [0,0,0,0,0,1,1,1,1,0,0,0,0,0],
+    [1,1,1,1,1,1,0,1,1,1,1,1,1,0],
+    [1,1,0,1,1,1,0,1,1,0,1,1,1,0],
+    [1,1,0,1,1,1,0,1,1,0,0,0,0,0],
+    [1,1,0,1,1,1,1,1,1,1,1,1,1,1],
+    [1,1,0,1,1,1,1,1,1,1,1,1,0,0],
+    [1,1,0,0,0,0,0,0,0,1,1,1,1,1],
+    [0,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [0,0,0,0,0,0,0,0,0,1,1,1,1,1],
+    [0,1,1,1,1,1,1,1,1,1,1,0,0,0],
+    [0,0,0,1,1,1,1,1,1,1,1,0,0,0],
+    [0,0,0,0,0,0,0,1,1,1,1,0,0,0],
+    [1,1,1,1,1,1,1,1,1,1,0,0,1,1],
+    [1,1,1,0,0,0,1,1,1,1,1,1,1,1],
+    [1,1,1,0,0,0,1,1,1,1,1,1,1,1]
+]))
+
+print(solution5([
+    [0,0,1,1,0],
+    [0,0,0,1,1],
+    [1,1,1,1,1],
+    [0,0,0,0,0]
+]))    
+
+print(solution5(matrix=[
     [0,0,0,0,0,1,1,1,1,0,0,0,0,0],
     [1,1,1,1,1,1,0,1,1,1,1,1,1,0],
     [1,1,0,1,1,1,0,1,1,0,1,1,1,0],
