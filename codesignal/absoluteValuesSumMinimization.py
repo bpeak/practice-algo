@@ -1,0 +1,2 @@
+def absoluteValuesSumMinimization(v):
+    pass
